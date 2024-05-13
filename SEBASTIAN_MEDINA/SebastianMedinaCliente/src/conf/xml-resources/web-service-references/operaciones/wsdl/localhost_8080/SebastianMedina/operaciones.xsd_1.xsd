@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://sw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://sw/">
+
+<xs:element name="cargarDistribuidor" type="tns:cargarDistribuidor"/>
+
+<xs:element name="cargarDistribuidorResponse" type="tns:cargarDistribuidorResponse"/>
+
+<xs:element name="cargarMedicamentos" type="tns:cargarMedicamentos"/>
+
+<xs:element name="cargarMedicamentosResponse" type="tns:cargarMedicamentosResponse"/>
+
+<xs:element name="crearProducto" type="tns:crearProducto"/>
+
+<xs:element name="crearProductoResponse" type="tns:crearProductoResponse"/>
+
+<xs:element name="eliminar" type="tns:eliminar"/>
+
+<xs:element name="eliminarResponse" type="tns:eliminarResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:complexType name="cargarDistribuidor">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="cargarDistribuidorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:distribuidor" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="distribuidor">
+<xs:sequence>
+<xs:element name="distribuidor" type="xs:string" minOccurs="0"/>
+<xs:element name="medicamento" type="tns:medicamento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="medicamento">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="stock" type="xs:int"/>
+<xs:element name="tipoMedicamento" type="tns:tipoMedicamento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoMedicamento">
+<xs:sequence>
+<xs:element name="listaMedicamento" type="tns:medicamento" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cargarMedicamentos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="cargarMedicamentosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:medicamento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminar">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearProducto">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="tns:tipoMedicamento" minOccurs="0"/>
+<xs:element name="arg2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:medicamento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
